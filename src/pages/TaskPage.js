@@ -8,7 +8,7 @@ import { Calendar } from 'primereact/calendar';
 import { useNavigate, useParams } from 'react-router-dom';
 import "../styles/TaskPage.sass";
 
-const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd}) => {
+const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd }) => {
   const [editMode, setEditMode] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -71,7 +71,7 @@ const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd}) =>
         }
         return task;
       });
-  
+
       setAllTasks(updatedTasks);
       setEditMode(false);
       setTaskData({
@@ -86,7 +86,7 @@ const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd}) =>
         id: new Date().toISOString(),
         category: '',
       });
-      
+
     } else {
       handleAdd(e);
     }
@@ -161,32 +161,35 @@ const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd}) =>
             />
 
             {editMode &&
-            <>
-              <label htmlFor="progress">Progress</label>
-              <InputText
-                id='progress'
-                name='progress'
-                value={taskData.progress}
-                onChange={handleChange}
-              />
-              <Slider
-                id='progress'
-                name='progress'
-                value={taskData.progress}
-                onChange={handleProgressChange}
-              />
+              <>
+                <label htmlFor="progress">Progress</label>
+                <InputText
+                  id='progress'
+                  name='progress'
+                  value={taskData.progress}
+                  onChange={handleChange}
+                />
+                <Slider
+                  id='progress'
+                  name='progress'
+                  value={taskData.progress}
+                  onChange={handleProgressChange}
+                />
 
-              <label htmlFor="status">Status</label>
-              <Dropdown
-                id='status'
-                name='status'
-                value={taskData.status}
-                onChange={handleChange}
-                options={statusOptions}
-              />
-            </>
-            } 
-            <input className='submit-button' type='submit' />
+                <label htmlFor="status">Status</label>
+                <Dropdown
+                  id='status'
+                  name='status'
+                  value={taskData.status}
+                  onChange={handleChange}
+                  options={statusOptions}
+                />
+              </>
+            }
+            <div>
+              <input className='submit-button' type='submit' />
+              <button className='cancel-button' onClick={() => { navigate('/') }} type='cancel'>Cancel</button>
+            </div>
           </section>
           <section>
             <label htmlFor='owner'>Owner</label>
