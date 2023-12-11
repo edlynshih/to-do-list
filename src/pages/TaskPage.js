@@ -13,19 +13,12 @@ const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd }) =
   const navigate = useNavigate();
   const { id } = useParams();
 
-  console.log('id', id)
-
   useEffect(() => {
-    console.log('id:', id);
-    console.log('allTasks:', allTasks);
-    console.log('setTaskData:', setTaskData);
-    // Check if taskData has some values to determine if it's an edit mode
+
     setEditMode(!!id);
 
-    // If in edit mode, retrieve the task data based on the timestamp
     if (id) {
       const selectedTask = allTasks.find(task => task.id === id);
-      console.log('here is selected task', selectedTask)
       setTaskData(selectedTask);
     }
   }, [id, allTasks, setTaskData]);
@@ -100,8 +93,6 @@ const TaskPage = ({ allTasks, setAllTasks, taskData, setTaskData, handleAdd }) =
     { label: "Working on it", value: "Working on it" },
     { label: "Stuck", value: "Stuck" },
   ];
-
-  console.log(taskData)
 
   return (
     <div className="task-page">

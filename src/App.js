@@ -102,7 +102,7 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<Dashboard allTasks={allTasks} setAllTasks={setAllTasks} handleDelete={handleDelete} />}
+            element={<Dashboard allTasks={allTasks} handleDelete={handleDelete} />}
           />
           <Route
             path="/task"

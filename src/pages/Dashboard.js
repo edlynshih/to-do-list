@@ -2,7 +2,7 @@ import React from 'react'
 import TaskCard from "../components/TaskCard";
 import "../styles/Dashboard.sass";
 
-const Dashboard = ({ allTasks, setAllTasks, handleDelete }) => {
+const Dashboard = ({ allTasks, handleDelete }) => {
 
   const colors = [
     "#DEDAF4",
